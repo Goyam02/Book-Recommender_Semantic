@@ -23,11 +23,11 @@ books["large_thumbnail"] = np.where(
 raw_documents = TextLoader("data/tagged_description.txt",encoding="utf-8").load()
 text_splitter = CharacterTextSplitter(separator="\n", chunk_size=1, chunk_overlap=0)
 documents = text_splitter.split_documents(raw_documents)
-# db_books = Chroma.from_documents(documents, NomicEmbeddings(model="nomic-embed-text-v1.5"))
-db_books = Chroma(
-    persist_directory="./local_chroma_db",
-    embedding_function=NomicEmbeddings(model="nomic-embed-text-v1.5")
-)
+db_books = Chroma.from_documents(documents, NomicEmbeddings(model="nomic-embed-text-v1.5"))
+# db_books = Chroma(
+#     persist_directory="./local_chroma_db",
+#     embedding_function=NomicEmbeddings(model="nomic-embed-text-v1.5")
+# )
 
 def retrieve_semantic_recommendations(
         query: str,
