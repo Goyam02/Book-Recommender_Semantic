@@ -2,3 +2,4 @@ venv_n/
 .env
 venv/
 local_chroma_db/
+local_chroma_db/
